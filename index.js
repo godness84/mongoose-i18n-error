@@ -73,9 +73,9 @@ module.exports = function(options) {
 		if (err.code !== 11000 && err.code !== 11001) return null;
 
 		var matches = /index:\s(.*)(?:_\d?)\sdup key:\s\{\s:\s"(.*)"\s\}/.exec(err.message);
-		if (!matches || matches.length != 2){
+		if (!matches || matches.length != 3){
 			matches = /index:\s(.*)(?:_\d?)\sdup key:\s\{\s:\s(.*)\s\}/.exec(err.message);
-			if (!matches || matches.length != 2){
+			if (!matches || matches.length != 3){
 				matches = [
 					'',
 					'unknown',
