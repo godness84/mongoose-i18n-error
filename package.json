@@ -1,6 +1,6 @@
 {
 	"name": "mongoose-i18n-error",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "lightweight module for node.js/express.js to create beautiful mongoose i18n validation error messages",
 	"author": {
 		"name": "Matthias Fey",
