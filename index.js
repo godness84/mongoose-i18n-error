@@ -72,7 +72,17 @@ module.exports = function(options) {
 		if (err.name !== 'MongoError') return null;
 		if (err.code !== 11000 && err.code !== 11001) return null;
 
-		var matches = /index:\s(.*)_1\sdup key:\s\{\s:\s"(.*)"\s\}/.exec(err.message);
+		var matches = /index:\s(.*)(?:_\d?)\sdup key:\s\{\s:\s"(.*)"\s\}/.exec(err.message);
+		if (!matches || matches.length != 2){
+			matches = /index:\s(.*)(?:_\d?)\sdup key:\s\{\s:\s(.*)\s\}/.exec(err.message);
+			if (!matches || matches.length != 2){
+				matches = [
+					'',
+					'unknown',
+					'unknown',
+				];
+			}
+		}
 
 		var result = {};
 		result[matches[1]] = {
